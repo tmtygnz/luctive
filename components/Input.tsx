@@ -5,8 +5,8 @@ import React, {
 
 const size = {
 	sm: "h-9",
-	md: "",
-	lg: ""
+	md: "h-7",
+	lg: "h-5"
 }
 
 export type InputProps = DetailedHTMLProps<
