@@ -14,13 +14,15 @@ export type InputProps = DetailedHTMLProps<
 	HTMLInputElement
 > & {
 	inputSize?: keyof typeof size,
-	placeholder?: string
+	placeholder?: string,
+	type?: string
 }
 
 export const Input: React.FC<InputProps> = ({
 	inputSize="sm",
 	className="",
-	placeholder,
+	placeholder="",
+	type=""
 }) => {
 	return (
 		<div>
@@ -28,7 +30,7 @@ export const Input: React.FC<InputProps> = ({
 			placeholder-gray-400 text-indent
 			focus:outline-none focus:ring focus:border-blue-300
 			transition duration-150 ease-in-out
-			${className}`} placeholder={placeholder}/>
+			${className}`} placeholder={placeholder} type={type}/>
 		</div>
 	)
 }
