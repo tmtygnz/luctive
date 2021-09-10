@@ -6,6 +6,6 @@ export default{
 	component: Spinner
 }
 
-const Template = (args) => <Spinner {...args}>Hello Button</Spinner>;
+const Template = (args) => <Spinner {...args}></Spinner>;
 
 export const Default = Template.bind({});

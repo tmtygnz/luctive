@@ -21,10 +21,10 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
 	console.log(Type);
   return (
-    <button className={`${buttonTypes[Type]} shadow-md flex items-center 
+    <button className={`${buttonTypes[Type]} rounded-xl shadow-md flex items-center 
 		${IsDisabled && "cursor-not-allowed"}`}>
 			
-			{IsLoading ? <div className="mr-5">
+			{IsLoading ? <div className="mr-2">
 				<Spinner></Spinner>
 			</div>: null}
 
