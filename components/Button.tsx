@@ -2,8 +2,8 @@ import React, { Children } from "react";
 import { Spinner } from "./Spinner";
 
 const buttonTypes = {
-  primary: "bg-blue-400 text-white p-3 hover:bg-blue-500",
-	secondary: "border p-3 border-blue-400 text-blue-400"
+  primary: "bg-blue-400 text-white py-2 px-3 hover:bg-blue-500",
+	secondary: "border py-2 px-3 border-blue-400 text-blue-400"
 };
 
 export type ButtonProps = {
