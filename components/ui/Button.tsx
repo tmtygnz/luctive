@@ -2,8 +2,7 @@ import React, { Children } from "react";
 import { Spinner } from "./Spinner";
 
 const buttonTypes = {
-  primary: "bg-blue-400 text-white py-2 px-33 hover:bg-blue-500",
-	secondary: "border py-2 px-3 border-blue-400 text-blue-400"
+  primary: "bg-accent-normal py-2 px-6 hover:bg-accent-hover active:bg-accent-focus",
 };
 
 export type ButtonProps = {
@@ -21,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
 	console.log(Type);
   return (
-    <button className={`${buttonTypes[Type]} rounded-xl shadow-md flex items-center 
+    <button className={`${buttonTypes[Type]} rounded-md shadow-md text-white flex items-center 
 		${IsDisabled && "cursor-not-allowed"}`}>
 			
 			{IsLoading ? <div className="mr-2">
