@@ -8,7 +8,7 @@ const size = {
 
 const color = {
   primary: "#6767CB",
-  secondary: "#444A54",
+  secondary: "#323232",
 };
 
 export type SpinnerProps = {
