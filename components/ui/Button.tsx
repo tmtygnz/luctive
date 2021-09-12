@@ -32,7 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
       </span>
       {IsLoading ? (
         <span className="absolute">
-          <Spinner />
+          <Spinner colorType={Type}/>
         </span>
       ) : null}
     </button>

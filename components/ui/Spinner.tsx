@@ -6,11 +6,17 @@ const size = {
   lg: "h-5 w-5",
 };
 
-export type SpinnerProps = {
-  spinnerSize?: keyof typeof size;
+const color = {
+  primary: "#6767CB",
+  secondary: "#444A54",
 };
 
-export const Spinner: React.FC<SpinnerProps> = ({ spinnerSize = "lg" }) => {
+export type SpinnerProps = {
+  spinnerSize?: keyof typeof size;
+  colorType?: keyof typeof color;
+};
+
+export const Spinner: React.FC<SpinnerProps> = ({ spinnerSize = "lg", colorType="primary" }) => {
   return (
     <svg
       className="animate-spin h-5 w-5"
@@ -20,7 +26,7 @@ export const Spinner: React.FC<SpinnerProps> = ({ spinnerSize = "lg" }) => {
     >
       <path
         d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM1.47127 10C1.47127 14.7103 5.28971 18.5287 10 18.5287C14.7103 18.5287 18.5287 14.7103 18.5287 10C18.5287 5.28971 14.7103 1.47127 10 1.47127C5.28971 1.47127 1.47127 5.28971 1.47127 10Z"
-        fill="#6767CB"
+        fill={color[colorType]}
       />
       <path
         d="M18.8892 12.6097C19.279 12.7241 19.6907 12.5013 19.7761 12.1041C20.0642 10.7658 20.0749 9.37981 19.8045 8.03247C19.4858 6.44423 18.786 4.95719 17.7654 3.69927C16.7447 2.44135 15.4337 1.45022 13.9452 0.811132C12.6825 0.268983 11.3241 -0.00605155 9.95509 9.88188e-05C9.54882 0.00192411 9.24592 0.358801 9.2776 0.763845V0.763845C9.30928 1.16889 9.66367 1.46823 10.0699 1.47156C11.2008 1.48083 12.3211 1.71497 13.3648 2.16307C14.6343 2.70813 15.7524 3.55344 16.6229 4.62628C17.4934 5.69912 18.0902 6.96738 18.362 8.32195C18.5855 9.43554 18.5838 10.58 18.3599 11.6886C18.2795 12.0868 18.4994 12.4953 18.8892 12.6097V12.6097Z"
