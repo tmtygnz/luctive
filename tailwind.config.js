@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -12,6 +14,9 @@ module.exports = {
 				"secondary-hover": "#2B2F35",
 				"secondary-focus": "#1E2024",
 				"secondary-disabled": "#444A54"
+			},
+			fontFamily: {
+				sans:["Mukta", ...defaultTheme.fontFamily.sans]
 			}
 		}
   },
