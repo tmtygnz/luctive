@@ -1,29 +1,35 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-			colors: {
-				"primary-normal": "#5454C5",
-				"primary-hover": "#3F3FBB",
-				"primary-focus": "#3838A4",
-				"primary-disabled": "#6767CB",
-				"secondary-normal": "#393E46",
-				"secondary-hover": "#2B2F35",
-				"secondary-focus": "#1E2024",
-				"secondary-disabled": "#444A54"
-			},
-			fontFamily: {
-				sans:["Mukta", ...defaultTheme.fontFamily.sans]
-			}
-		}
+      colors: {
+        "primary-normal": "#5454C5",
+        "primary-hover": "#3F3FBB",
+        "primary-focus": "#3838A4",
+        "primary-disabled": "#6767CB",
+        "gray-50": "#828282",
+        "gray-100": "#797979",
+        "gray-150": "#707070",
+        "gray-200": "#686868",
+        "gray-300": "#565656",
+        "gray-400": "#444444",
+        "gray-500": "#323232",
+        "gray-600": "#1E1E1E",
+        "gray-700": "#090909",
+        "gray-750": "#000000",
+      },
+      fontFamily: {
+        sans: ["Mukta", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   variants: {
     extend: {
-			backgroundColor: ['active']
-		},
+      backgroundColor: ["active"],
+    },
   },
   plugins: [],
-}
+};

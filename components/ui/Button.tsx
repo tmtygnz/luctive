@@ -5,7 +5,7 @@ const buttonTypes = {
   primary:
     "bg-primary-normal py-2 px-6 hover:bg-primary-hover active:bg-primary-focus",
   secondary:
-    "bg-secondary-normal py-2 px-6 hover:bg-secondary-hover active:bg-secondary-focus",
+    "bg-gray-300 py-2 px-6 hover:bg-gray-400 active:bg-gray-600",
 };
 
 export type ButtonProps = {
