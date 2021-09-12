@@ -3,7 +3,9 @@ import { Spinner } from "./Spinner";
 
 const buttonTypes = {
   primary:
-    "bg-accent-normal py-2 px-6 hover:bg-accent-hover active:bg-accent-focus",
+    "bg-primary-normal py-2 px-6 hover:bg-primary-hover active:bg-primary-focus",
+  secondary:
+    "bg-secondary-normal py-2 px-6 hover:bg-secondary-hover active:bg-secondary-focus",
 };
 
 export type ButtonProps = {
@@ -16,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   IsLoading,
   IsDisabled,
-  Type = "primary",
+  Type = "secondary",
 }) => {
   console.log(Type);
   return (

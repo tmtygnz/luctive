@@ -4,10 +4,14 @@ module.exports = {
   theme: {
     extend: {
 			colors: {
-				"accent-normal": "#5454C5",
-				"accent-hover": "#3F3FBB",
-				"accent-focus": "#3838A4",
-				"accent-disabled": "#6767CB"
+				"primary-normal": "#5454C5",
+				"primary-hover": "#3F3FBB",
+				"primary-focus": "#3838A4",
+				"primary-disabled": "#6767CB",
+				"secondary-normal": "#393E46",
+				"secondary-hover": "#2B2F35",
+				"secondary-focus": "#1E2024",
+				"secondary-disabled": "#444A54"
 			}
 		}
   },
