@@ -2,7 +2,8 @@ import React, { Children } from "react";
 import { Spinner } from "./Spinner";
 
 const buttonTypes = {
-  primary: "bg-accent-normal py-2 px-6 hover:bg-accent-hover active:bg-accent-focus",
+  primary:
+    "bg-accent-normal py-2 px-6 hover:bg-accent-hover active:bg-accent-focus",
 };
 
 export type ButtonProps = {
@@ -11,25 +12,27 @@ export type ButtonProps = {
   Type?: keyof typeof buttonTypes;
 };
 
-
 export const Button: React.FC<ButtonProps> = ({
   children,
   IsLoading,
   IsDisabled,
   Type = "primary",
 }) => {
-	console.log(Type);
+  console.log(Type);
   return (
-    <button className={`${buttonTypes[Type]} rounded-md shadow-md text-white flex items-center 
-		${IsDisabled && "cursor-not-allowed"}`}>
-			
-			{IsLoading ? <div className="mr-2">
-				<Spinner></Spinner>
-			</div>: null}
-
-			<div>
-				{children}
-			</div>
+    <button
+      className={`${buttonTypes[Type]} 
+			rounded-md shadow-md text-white flex items-center justify-center
+			${IsDisabled && "cursor-not-allowed"}`}
+    >
+      <span className={IsLoading ? "opacity-0" : "items-center"}>
+        {children}
+      </span>
+      {IsLoading ? (
+        <span className="absolute">
+          <Spinner />
+        </span>
+      ) : null}
     </button>
   );
 };
