@@ -1,5 +1,8 @@
 ### YOUDO still in development
 
+### Note
+School starts the development progress might criple but i will try my best.
+
 ### WIP Components
 - Button
 - Checkbox
