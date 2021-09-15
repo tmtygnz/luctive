@@ -17,14 +17,12 @@ export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > & {
-  IsLoading?: boolean;
   IsDisabled?: boolean;
   Type?: keyof typeof buttonTypes;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  IsLoading,
   IsDisabled,
   Type = "green",
   className,
@@ -38,14 +36,9 @@ export const Button: React.FC<ButtonProps> = ({
 			${IsDisabled && "cursor-not-allowed"} ${className} transition duration-150`}
       {...props}
     >
-      <span className={IsLoading ? "opacity-0" : "items-center"}>
+      <span className="items-center">
         {children}
       </span>
-      {IsLoading ? (
-        <span className="absolute">
-          <Spinner colorType={Type} />
-        </span>
-      ) : null}
     </button>
   );
 };
