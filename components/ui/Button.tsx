@@ -18,6 +18,7 @@ export type ButtonProps = DetailedHTMLProps<
   HTMLButtonElement
 > & {
   IsDisabled?: boolean;
+	IsDropdown?: boolean
   Type?: keyof typeof buttonTypes;
 };
 

@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import { Button } from "./Button";
 
 export type MenuProps = {
   label: string;
 };
 
 export const Menu: React.FC<MenuProps> = ({ children, label }) => {
+
   const [show, setShow] = useState(false);
   return (
-    <div className="p-1">
-      <Button onClick={() => setShow(!show)} Type="secondary">{label}</Button>
+    <div className="p-1 relative">
+      <button
+        onClick={() => setShow(!show)}
+        className={`rounded-sm flex items-center justify-center transition duration-150 bg-transparent py-1 px-3 
+				hover:bg-ghost-hover text-black ${show ? "bg-ghost-focus" : ""}`}
+      >
+        <span className="items-center">was</span>
+      </button>
       {show ? (
         <div
-          className="absolute rounded top-10 w-36 overflow-hidden 
-					transition duration-150 ease-in-out bg-gray-500 border border-gray-400"
+          className="absolute mt-1 rounded top-10 w-36 overflow-hidden 
+					transition duration-150 ease-in-out shadow-xl border"
         >
           {children}
         </div>
@@ -22,10 +28,10 @@ export const Menu: React.FC<MenuProps> = ({ children, label }) => {
   );
 };
 
-export const MenuItem: React.FC<any> = ({children}) => {
+export const MenuItem: React.FC<any> = ({ children }) => {
   return (
-	<div className="hover:bg-gray-400 cursor-pointer px-2 py-1">
-		{children}
-	</div>
-	);
+    <div className="hover:bg-ghost-hover cursor-pointer px-2 py-1 rounded m-2 block">
+      {children}
+    </div>
+  );
 };
