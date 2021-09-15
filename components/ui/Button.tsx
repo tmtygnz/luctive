@@ -6,9 +6,11 @@ import React, {
 import { Spinner } from "./Spinner";
 
 const buttonTypes = {
-  primary:
-    "bg-primary-normal py-2 px-6 hover:bg-primary-hover active:bg-primary-focus",
-  secondary: "bg-gray-300 py-2 px-6 hover:bg-gray-400 active:bg-gray-600",
+  green:
+    "bg-green-normal py-1 px-3 hover:bg-green-hover active:bg-green-focus border border-green-stroke text-white",
+  yellow:
+    "bg-yellow-normal py-1 px-3 hover:bg-yellow-hover active:bg-yellow-focus border border-yellow-stroke text-white",
+	ghost:"bg-transparent py-1 px-3 hover:bg-ghost-hover active:bg-ghost-focus text-black"
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -24,16 +26,17 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   IsLoading,
   IsDisabled,
-  Type = "secondary",
+  Type = "green",
+  className,
   ...props
 }) => {
   console.log(Type);
   return (
     <button
       className={`${buttonTypes[Type]} 
-			rounded-md shadow-md text-white flex items-center justify-center
-			${IsDisabled && "cursor-not-allowed"}`}
-			{...props}
+			rounded-sm flex items-center justify-center
+			${IsDisabled && "cursor-not-allowed"} ${className} transition duration-150`}
+      {...props}
     >
       <span className={IsLoading ? "opacity-0" : "items-center"}>
         {children}

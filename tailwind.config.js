@@ -6,10 +6,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary-normal": "#5454C5",
-        "primary-hover": "#3F3FBB",
-        "primary-focus": "#3838A4",
-        "primary-disabled": "#6767CB",
+        "green-normal": "#6CAB63",
+        "green-hover": "#61A257",
+        "green-focus": "#599550",
+        "green-stroke": "#63A05A",
+				"yellow-normal": "#FBBA48",
+				"yellow-hover": "#FBB439",
+				"yellow-focus": "#FBAC25",
+				"yellow-stroke": "#F2AF3F",
+				"ghost-hover": "#F0F0F0",
+				"ghost-focus": "#D9D9D9",
         "gray-50": "#828282",
         "gray-100": "#797979",
         "gray-150": "#707070",
