@@ -16,6 +16,16 @@ const Home: NextPage = () => {
 					<MenuItem>Guides Tutorials</MenuItem>
 					<MenuItem>Webinars</MenuItem>
 				</Menu>
+				<Menu label="Dropdown">
+					<MenuItem>Blog</MenuItem>
+					<MenuItem>Guides Tutorials</MenuItem>
+					<MenuItem>Webinars</MenuItem>
+				</Menu>
+				<Menu label="Dropdown">
+					<MenuItem>Blog</MenuItem>
+					<MenuItem>Guides Tutorials</MenuItem>
+					<MenuItem>Webinars</MenuItem>
+				</Menu>
       </div>
     </div>
   );
