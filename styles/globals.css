@@ -6,3 +6,7 @@
 .text-indent{
 	text-indent: 10px;
 }
+
+.drop:active .drop-items{
+	display:block;
+}
