@@ -1,5 +1,7 @@
 ### YOUDO still in development
 
+The name will be changed later in the development.
+
 ### Note
 School starts the development progress might criple but i will try my best.
 
