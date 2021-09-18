@@ -11,21 +11,7 @@ const Home: NextPage = () => {
   return (
     <div className={`${styles.container}`}>
       <div className="m-20">
-				<Menu label="Dropdown">
-					<MenuItem>Blog</MenuItem>
-					<MenuItem>Guides Tutorials</MenuItem>
-					<MenuItem>Webinars</MenuItem>
-				</Menu>
-				<Menu label="Dropdown">
-					<MenuItem>Blog</MenuItem>
-					<MenuItem>Guides Tutorials</MenuItem>
-					<MenuItem>Webinars</MenuItem>
-				</Menu>
-				<Menu label="Dropdown">
-					<MenuItem>Blog</MenuItem>
-					<MenuItem>Guides Tutorials</MenuItem>
-					<MenuItem>Webinars</MenuItem>
-				</Menu>
+				<Spinner/>
       </div>
     </div>
   );

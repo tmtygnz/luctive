@@ -1,10 +1,27 @@
-import React from "react";
+import React, { HTMLAttributes, DetailedHTMLProps } from "react";
 
-export const Spinner = () => {
+const size = {
+  lg: "h-14 w-14",
+  nm: "h-8 w-8",
+  sm: "h-4 w-4",
+};
+
+export type SpinnerProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> & {
+  spinnerSize?: keyof typeof size;
+};
+
+export const Spinner: React.FC<SpinnerProps> = ({
+  className,
+  spinnerSize = "sm",
+}) => {
+	console.log(spinnerSize);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-8 w-8 animate-spin"
+      className={`animate-spin ${size[spinnerSize]}`}
       viewBox="0 0 24 24"
       fill="none"
     >

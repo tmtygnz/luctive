@@ -12,10 +12,9 @@ export const Menu: React.FC<MenuProps> = ({ children, label }) => {
   let container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log("test");
+
     document.addEventListener("mousedown", clickedOutside);
     return () => {
-      console.log("burh");
       document.removeEventListener("mousedown", clickedOutside);
     };
   });
