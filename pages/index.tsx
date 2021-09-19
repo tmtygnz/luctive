@@ -6,13 +6,16 @@ import { Button } from "../components/ui/Button";
 import { useState } from "react";
 import { Menu, MenuItem } from "../components/ui/Menu";
 import { Spinner } from "../components/ui/Spinner";
+import { Modal } from "../components/ui/Modal";
 
 const Home: NextPage = () => {
+  const [isOpen, setOpen] = useState(false);
   return (
     <div className={`${styles.container}`}>
-      <div className="m-20">
-				<Spinner/>
-      </div>
+      <Button className="mt-3 ml-3" onClick={() => setOpen(!isOpen)}>
+        Open Modal Window
+      </Button>
+      <Modal isOpen={isOpen}></Modal>
     </div>
   );
 };
