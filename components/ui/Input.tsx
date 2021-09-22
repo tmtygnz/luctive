@@ -27,8 +27,8 @@ export const Input: React.FC<InputProps> = ({
 	return (
 		<div>
 			<input className={`${size[inputSize]} border rounded-lg border-gray-400 
-			placeholder-gray-400 text-indent
-			focus:outline-none focus:ring focus:border-blue-300
+			placeholder-gray-400 p-5
+			focus:outline-none focus:ring ring-green-hover
 			transition duration-150 ease-in-out
 			${className}`} placeholder={placeholder} type={type}/>
 		</div>
