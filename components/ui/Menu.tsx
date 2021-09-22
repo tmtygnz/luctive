@@ -21,7 +21,6 @@ export const Menu: React.FC<MenuProps> = ({ children, label }) => {
 
   const clickedOutside = (event: MouseEvent) => {
     console.log(typeof event);
-    let a = event.target;
     if (!container.current?.contains((event.target) as Node) && container.current) {
       console.log("false");
       setShow(false);
