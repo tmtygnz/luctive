@@ -1,18 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  DetailedHTMLProps,
+  HTMLAttributes,
+} from "react";
 import { Button } from "./Button";
 import Link from "next/link";
 
-export type MenuProps = {
-  label: string;
+export type MenuProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> & {
+  label: React.ReactNode;
 };
 
-export const Menu: React.FC<MenuProps> = ({ children, label }) => {
+export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
   const [show, setShow] = useState(true);
 
   let container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-
     document.addEventListener("mousedown", clickedOutside);
     return () => {
       document.removeEventListener("mousedown", clickedOutside);
@@ -21,14 +29,17 @@ export const Menu: React.FC<MenuProps> = ({ children, label }) => {
 
   const clickedOutside = (event: MouseEvent) => {
     console.log(typeof event);
-    if (!container.current?.contains((event.target) as Node) && container.current) {
+    if (
+      !container.current?.contains(event.target as Node) &&
+      container.current
+    ) {
       console.log("false");
       setShow(false);
     }
   };
 
   return (
-    <div className="drop inline-block relative" ref={container}>
+    <div className="drop inline-block relative" ref={container} {...props}>
       <Button Type="ghost" onClick={() => setShow(!show)}>
         {label}
       </Button>
