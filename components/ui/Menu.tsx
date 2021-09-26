@@ -45,7 +45,7 @@ export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
       </Button>
       {show && (
         <div
-          className={`drop-items absolute 
+          className={`drop-items absolute bg-white
 					rounded border shadow-2xl transition duration-150 ease-in-out`}
         >
           {children}
