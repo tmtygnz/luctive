@@ -40,7 +40,7 @@ export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
 
   return (
     <div className="drop inline-block relative" ref={container} {...props}>
-      <Button Type="ghost" onClick={() => setShow(!show)}>
+      <Button Type="ghost" onClick={() => setShow(!show)} className="px-3">
         {label}
       </Button>
       {show && (
