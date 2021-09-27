@@ -7,10 +7,10 @@ import { Spinner } from "./Spinner";
 
 const buttonTypes = {
   green:
-    "bg-green-normal py-1 px-3 hover:bg-green-hover active:bg-green-focus border border-green-stroke text-white",
+    "bg-green-normal h-9 hover:bg-green-hover active:bg-green-focus border border-green-stroke text-white",
   yellow:
-    "bg-yellow-normal py-1 px-3 hover:bg-yellow-hover active:bg-yellow-focus border border-yellow-stroke text-white",
-	ghost:"bg-ghost-focus py-1 px-3 bg-opacity-0 hover:bg-opacity-30 active:bg-red-100 text-black"
+    "bg-yellow-normal h-9 hover:bg-yellow-hover active:bg-yellow-focus border border-yellow-stroke text-white",
+	ghost:"bg-ghost-focus h-9  bg-opacity-0 hover:bg-opacity-30 active:bg-red-100 text-black"
 };
 
 export type ButtonProps = DetailedHTMLProps<
