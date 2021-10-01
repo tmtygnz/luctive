@@ -1,16 +1,9 @@
-import React, {
-  Children,
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-} from "react";
-import { Spinner } from "./Spinner";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 const buttonTypes = {
-  green:
-    "bg-green-normal h-9 hover:bg-green-hover active:bg-green-focus border border-green-stroke text-white",
-  yellow:
-    "bg-yellow-normal h-9 hover:bg-yellow-hover active:bg-yellow-focus border border-yellow-stroke text-white",
-	ghost:"bg-ghost-focus h-9  bg-opacity-0 hover:bg-opacity-30 active:bg-red-100 text-black"
+  normal: "bg-black text-white border border-black hover:bg-black-hover ",
+  outline:
+    "bg-transparent text-black border border-black hover:bg-black hover:text-white ",
 };
 
 export type ButtonProps = DetailedHTMLProps<
@@ -18,14 +11,14 @@ export type ButtonProps = DetailedHTMLProps<
   HTMLButtonElement
 > & {
   IsDisabled?: boolean;
-	IsDropdown?: boolean
+  IsDropdown?: boolean;
   Type?: keyof typeof buttonTypes;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   IsDisabled,
-  Type = "green",
+  Type = "outline",
   className,
   ...props
 }) => {
@@ -33,13 +26,13 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`${buttonTypes[Type]} 
-			rounded-sm flex items-center justify-center
-			${IsDisabled && "cursor-not-allowed"} ${className} transition duration-150`}
+			flex items-center justify-center px-6 py-2 roundend-none
+			${
+        IsDisabled && "cursor-not-allowed"
+      } ${className} transition ease-in-out duration-150`}
       {...props}
     >
-      <span className="items-center">
-        {children}
-      </span>
+      <span className="items-center">{children}</span>
     </button>
   );
 };
