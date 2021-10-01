@@ -12,6 +12,12 @@ const paddingSizes = {
   small: "px-2 py-1",
 };
 
+const size = {
+  sm: "h-9 w-50",
+  md: "h-7 w-5",
+  lg: "h-5 w-5",
+};
+
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -20,6 +26,7 @@ export type ButtonProps = DetailedHTMLProps<
   IsDropdown?: boolean;
   Type?: keyof typeof buttonTypes;
   PaddingSize?: keyof typeof paddingSizes;
+  Size?: keyof typeof size;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -27,13 +34,14 @@ export const Button: React.FC<ButtonProps> = ({
   IsDisabled,
   Type = "outline",
   PaddingSize = "small",
+  Size = "sm",
   className,
   ...props
 }) => {
   console.log(Type);
   return (
     <button
-      className={`${buttonTypes[Type]} 
+      className={`${buttonTypes[Type]} ${size[Size]}
 			flex items-center justify-center ${paddingSizes[PaddingSize]} roundend-none
 			${
         IsDisabled && "cursor-not-allowed"
