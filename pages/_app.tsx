@@ -1,7 +1,12 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { DrawerProvider } from "../context/DrawerContext";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <DrawerProvider>
+      <Component {...pageProps} />
+    </DrawerProvider>
+  );
 }
-export default MyApp
+export default MyApp;

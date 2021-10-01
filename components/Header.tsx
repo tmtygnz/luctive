@@ -1,19 +1,22 @@
 import React from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiExitDoor, GiHamburgerMenu, GiSettingsKnobs } from "react-icons/gi";
 import { RiSearchLine } from "react-icons/ri";
+import { useDrawer, useDrawerUpdate } from "../context/DrawerContext";
+import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Menu, MenuItem } from "./ui/Menu";
 
 export const Header = () => {
+  const DrawerCon = useDrawer();
+  const DrawerUpdateCon = useDrawerUpdate();
+
   return (
-    <div className="px-2 py-2 bg-yellow-normal flex justify-between flex-shrink-0 flex-grow-0 items-center w-screen border">
+    <div className="px-2 py-2 bg-yellow-normal flex justify-between flex-shrink-0 flex-grow-0 items-center w-screen border ">
       <div className="flex items-center">
-        <Menu label="asdf" Type="outline" Icon={<GiHamburgerMenu />}>
-          <MenuItem Icon={<AiOutlineUser />}>Settings</MenuItem>
-          <MenuItem>Log out</MenuItem>
-          <MenuItem>Third Party</MenuItem>
-        </Menu>
+        <Button className="mr-3" onClick={() => DrawerUpdateCon()}>
+          <GiHamburgerMenu />
+        </Button>
         <Input placeholder="Search your space" icon={<RiSearchLine />} />
       </div>
 
@@ -24,8 +27,8 @@ export const Header = () => {
           Icon={<AiOutlineUser />}
           MenuPosition="left"
         >
-          <MenuItem Icon={<AiOutlineUser />}>Settings</MenuItem>
-          <MenuItem>Log out</MenuItem>
+          <MenuItem Icon={<GiSettingsKnobs />}>Settings</MenuItem>
+          <MenuItem Icon={<GiExitDoor />}>Log out</MenuItem>
           <MenuItem>Third Party</MenuItem>
         </Menu>
       </div>

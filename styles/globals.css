@@ -6,3 +6,7 @@
 .text-indent {
   text-indent: 10px;
 }
+
+.drawer {
+  height: calc(100vh - 56px);
+}
