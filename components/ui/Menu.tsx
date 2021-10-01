@@ -46,7 +46,7 @@ export const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block" ref={container}>
       <Button {...props} onClick={() => setShowOverlay(!showOverlay)}>
         <div className="flex items-center">
           <span className="mr-2">{Icon}</span>
@@ -57,7 +57,6 @@ export const Menu: React.FC<MenuProps> = ({
         <div
           className="absolute border shadow 
 					right-0 w-36 bg-white"
-          ref={container}
         >
           {children}
         </div>
