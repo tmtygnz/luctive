@@ -6,6 +6,12 @@ const buttonTypes = {
     "bg-transparent text-black border border-black hover:bg-black hover:text-white ",
 };
 
+const paddingSizes = {
+  lg: "px-10 py-5",
+  normal: "px-6 py-2",
+  small: "px-2 py-1",
+};
+
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -13,12 +19,14 @@ export type ButtonProps = DetailedHTMLProps<
   IsDisabled?: boolean;
   IsDropdown?: boolean;
   Type?: keyof typeof buttonTypes;
+  PaddingSize?: keyof typeof paddingSizes;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   IsDisabled,
   Type = "outline",
+  PaddingSize = "small",
   className,
   ...props
 }) => {
@@ -26,7 +34,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button
       className={`${buttonTypes[Type]} 
-			flex items-center justify-center px-6 py-2 roundend-none
+			flex items-center justify-center ${paddingSizes[PaddingSize]} roundend-none
 			${
         IsDisabled && "cursor-not-allowed"
       } ${className} transition ease-in-out duration-150`}
