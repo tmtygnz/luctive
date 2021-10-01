@@ -1,22 +1,29 @@
 import React, {
-  useState,
-  useEffect,
-  useRef,
   DetailedHTMLProps,
   HTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
 } from "react";
-import { Button } from "./Button";
-import Link from "next/link";
+import { Button, ButtonProps } from "./Button";
 
-export type MenuProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & {
-  label: React.ReactNode;
+export type MenuProps = ButtonProps &
+  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+    label: React.ReactNode;
+    Icon?: JSX.IntrinsicAttributes;
+  };
+
+export type MenuItemProps = {
+  Icon?: JSX.IntrinsicAttributes;
 };
 
-export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
-  const [show, setShow] = useState(true);
+export const Menu: React.FC<MenuProps> = ({
+  children,
+  label,
+  Icon,
+  ...props
+}) => {
+  const [showOverlay, setShowOverlay] = useState(false);
 
   let container = useRef<HTMLDivElement>(null);
 
@@ -34,19 +41,23 @@ export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
       container.current
     ) {
       console.log("false");
-      setShow(false);
+      setShowOverlay(false);
     }
   };
 
   return (
-    <div className="drop inline-block relative" ref={container} {...props}>
-      <Button Type="ghost" onClick={() => setShow(!show)} className="px-3">
-        {label}
+    <div className="relative inline-block">
+      <Button {...props} onClick={() => setShowOverlay(!showOverlay)}>
+        <div className="flex items-center">
+          <span className="mr-2">{Icon}</span>
+          {label}
+        </div>
       </Button>
-      {show && (
+      {showOverlay && (
         <div
-          className={`drop-items absolute bg-white
-					rounded border shadow-2xl transition duration-150 ease-in-out`}
+          className="absolute border shadow 
+					right-0 w-36 bg-white"
+          ref={container}
         >
           {children}
         </div>
@@ -55,13 +66,16 @@ export const Menu: React.FC<MenuProps> = ({ children, label, ...props }) => {
   );
 };
 
-export const MenuItem: React.FC<any> = ({ children }) => {
+export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
   return (
     <div
-      className="hover:bg-ghost-hover cursor-pointer  rounded 
-			m-1 py-1 pr-20 pl-2 transition duration-150"
+      className="py-2 border hover:bg-black hover:text-white 
+			transition duration-150 ease-in-out cursor-pointer"
     >
-      <Link href="#">{children}</Link>
+      <div className="ml-3 flex items-center">
+        {Icon && <span className="mr-2">{Icon}</span>}
+        {children}
+      </div>
     </div>
   );
 };
