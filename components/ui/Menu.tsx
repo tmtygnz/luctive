@@ -9,18 +9,25 @@ import { Button, ButtonProps } from "./Button";
 
 export type MenuProps = ButtonProps &
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
-    label: React.ReactNode;
+    label?: React.ReactNode;
     Icon?: JSX.IntrinsicAttributes;
+    MenuPosition?: keyof typeof position;
   };
 
 export type MenuItemProps = {
   Icon?: JSX.IntrinsicAttributes;
 };
 
+const position = {
+  left: "right-0",
+  right: "left-0",
+};
+
 export const Menu: React.FC<MenuProps> = ({
   children,
   label,
   Icon,
+  MenuPosition = "right",
   ...props
 }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -55,8 +62,8 @@ export const Menu: React.FC<MenuProps> = ({
       </Button>
       {showOverlay && (
         <div
-          className="absolute border shadow 
-					right-0 w-36 bg-white"
+          className={`absolute border shadow 
+					${position[MenuPosition]} w-36 bg-white`}
         >
           {children}
         </div>
