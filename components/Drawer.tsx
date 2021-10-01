@@ -9,12 +9,27 @@ export const Drawer: React.FC = () => {
     <div className="fixed">
       {IsOpen ? (
         <div
-          className={`drawer w-72  bg-white border-r transition 
+          className={`drawer w-72 resize-x  bg-gray-50 border-r transition : ;
 					duration-150 ease-in-out `}
         >
-          <p>Test</p>
+          <div className="flex flex-wrap">
+            <DrawerItem>Upcoming</DrawerItem>
+            <DrawerItem>Today</DrawerItem>
+            <DrawerItem>Urgent</DrawerItem>
+          </div>
         </div>
       ) : null}
+    </div>
+  );
+};
+
+export const DrawerItem: React.FC = ({ children }) => {
+  return (
+    <div
+      className="hover:bg-black hover:text-white cursor-pointer w-full 
+			p-5 border-b border-t transition duration-150 ease-in-out"
+    >
+      {children}
     </div>
   );
 };
