@@ -19,3 +19,15 @@
 .drawerClose {
   width: 0rem;
 }
+
+.contentContainer {
+  transition: margin 150ms;
+}
+
+.drawerIsOpen {
+  margin: 0rem 0rem 0rem 20rem;
+}
+
+.drawerIsClosed {
+  margin: 0rem 0rem 2.5rem;
+}

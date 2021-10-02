@@ -14,8 +14,8 @@ const Home: NextPage = () => {
       <div className="main">
         <Drawer></Drawer>
         <div
-          className={`${
-            DrawerCon ? "ml-80" : "ml-10"
+          className={`contentContainer ${
+            DrawerCon ? "drawerIsOpen" : "drawerIsClosed"
           }  flex justify-center items-center`}
         >
           <TodoView />
