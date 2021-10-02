@@ -17,7 +17,6 @@ export const Spinner: React.FC<SpinnerProps> = ({
   className,
   spinnerSize = "sm",
 }) => {
-  console.log(spinnerSize);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

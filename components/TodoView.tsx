@@ -1,10 +1,44 @@
 import React from "react";
 import { AiFillCheckSquare, AiOutlineMore } from "react-icons/ai";
 import { BiSort } from "react-icons/bi";
+import { ITodo } from "../interfaces/ITodo";
 import { Button } from "./ui/Button";
 import { Menu, MenuItem } from "./ui/Menu";
 
 export const TodoView = () => {
+  let TodoList: Array<ITodo> = [
+    { IsDone: false, Title: "Test", Duedate: "September 3" },
+    { IsDone: false, Title: "Test1", Duedate: "September 4" },
+    { IsDone: false, Title: "Test2", Duedate: "September 5" },
+    { IsDone: false, Title: "Test3", Duedate: "September 6" },
+    { IsDone: false, Title: "Test4", Duedate: "September 7" },
+    { IsDone: false, Title: "Test5", Duedate: "September 8" },
+    { IsDone: false, Title: "Test6", Duedate: "September 1" },
+    { IsDone: false, Title: "Test7", Duedate: "September 9" },
+    { IsDone: false, Title: "Test8", Duedate: "September 2" },
+    { IsDone: false, Title: "Test9", Duedate: "September 12" },
+    { IsDone: false, Title: "Test", Duedate: "September 3" },
+    { IsDone: false, Title: "Test1", Duedate: "September 4" },
+    { IsDone: false, Title: "Test2", Duedate: "September 5" },
+    { IsDone: false, Title: "Test3", Duedate: "September 6" },
+    { IsDone: false, Title: "Test4", Duedate: "September 7" },
+    { IsDone: false, Title: "Test5", Duedate: "September 8" },
+    { IsDone: false, Title: "Test6", Duedate: "September 1" },
+    { IsDone: false, Title: "Test7", Duedate: "September 9" },
+    { IsDone: false, Title: "Test8", Duedate: "September 2" },
+    { IsDone: false, Title: "Test9", Duedate: "September 12" },
+    { IsDone: false, Title: "Test", Duedate: "September 3" },
+    { IsDone: false, Title: "Test1", Duedate: "September 4" },
+    { IsDone: false, Title: "Test2", Duedate: "September 5" },
+    { IsDone: false, Title: "Test3", Duedate: "September 6" },
+    { IsDone: false, Title: "Test4", Duedate: "September 7" },
+    { IsDone: false, Title: "Test5", Duedate: "September 8" },
+    { IsDone: false, Title: "Test6", Duedate: "September 1" },
+    { IsDone: false, Title: "Test7", Duedate: "September 9" },
+    { IsDone: false, Title: "Test8", Duedate: "September 2" },
+    { IsDone: false, Title: "Test9", Duedate: "September 12" },
+  ];
+
   return (
     <div className="w-220 m-10">
       <div className="flex justify-between">
@@ -12,7 +46,7 @@ export const TodoView = () => {
           <span className="text-2xl">Urgent</span>
           <span className="text-sm ml-2 text-gray-400">Saturday 2 October</span>
         </div>
-        <div className="Tools">
+        <div className="Tools ">
           <Menu label="Sort" Icon={<BiSort />} Type="normal">
             <MenuItem>Sort by priority</MenuItem>
             <MenuItem>Sort by alphabetically</MenuItem>
@@ -22,10 +56,9 @@ export const TodoView = () => {
       </div>
       <div className="Todos mt-5">
         <ul>
-          <TodoItem></TodoItem>
-          <TodoItem></TodoItem>
-          <TodoItem></TodoItem>
-          <TodoItem></TodoItem>
+          {TodoList.map((x) => (
+            <TodoItem>{x.Title}</TodoItem>
+          ))}
         </ul>
       </div>
     </div>
@@ -40,7 +73,7 @@ export const TodoItem: React.FC = ({ children }) => {
           <AiFillCheckSquare />
         </Button>
         <div className="todoName">
-          <div>Create Account</div>
+          <div>{children}</div>
           <div className="text-gray-500 text-xs">September 3</div>
         </div>
       </div>

@@ -8,8 +8,11 @@
 }
 
 .drawer {
+  transition: width 75ms ease-in-out;
+}
+
+.withoutHeader {
   height: calc(100vh - 56px);
-  transition: width 150ms ease-in-out;
 }
 
 .drawerOpen {
@@ -21,7 +24,7 @@
 }
 
 .contentContainer {
-  transition: margin 150ms;
+  transition: margin 75ms;
 }
 
 .drawerIsOpen {

@@ -11,12 +11,12 @@ const Home: NextPage = () => {
   return (
     <div className={`${styles.container} box-border `}>
       <Header />
-      <div className="main">
+      <div className="main withoutHeader">
         <Drawer></Drawer>
         <div
-          className={`contentContainer ${
+          className={`withoutHeader overflow-auto flex justify-center ${
             DrawerCon ? "drawerIsOpen" : "drawerIsClosed"
-          }  flex justify-center items-center`}
+          }`}
         >
           <TodoView />
         </div>

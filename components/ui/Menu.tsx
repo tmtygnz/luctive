@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React, {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  useEffect,
-  useRef,
-  useState,
+	DetailedHTMLProps,
+	HTMLAttributes,
+	useEffect,
+	useRef,
+	useState
 } from "react";
 import { Button, ButtonProps } from "./Button";
 
@@ -80,7 +80,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
   return (
     <li
       className="py-2 border hover:bg-black hover:text-white 
-			transition duration-150 ease-in-out cursor-pointer"
+			transition duration-75 ease-in-out cursor-pointer"
     >
       <div className="ml-3 flex items-center">
         {Icon && <span className="mr-2">{Icon}</span>}
@@ -98,7 +98,7 @@ export const MenuLinkItem: React.FC<MenuItemLinkProps> = ({
   return (
     <li
       className="py-2 border hover:bg-black hover:text-white 
-			transition duration-150 ease-in-out cursor-pointer"
+			transition duration-75 ease-in-out cursor-pointer"
     >
       <Link href={href}>
         <div className="ml-3 flex items-center">

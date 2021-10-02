@@ -38,14 +38,13 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   ...props
 }) => {
-  console.log(Type);
   return (
     <button
       className={`${buttonTypes[Type]} ${size[Size]}
 			flex items-center justify-center ${paddingSizes[PaddingSize]} roundend-none
 			${
         IsDisabled && "cursor-not-allowed"
-      } ${className} transition ease-in-out duration-150`}
+      } ${className} transition ease-in-out duration-75`}
       {...props}
     >
       <span className="items-center">{children}</span>

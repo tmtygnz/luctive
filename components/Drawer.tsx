@@ -8,7 +8,7 @@ export const Drawer: React.FC = () => {
   return (
     <div className="fixed">
       <div
-        className={`drawer ${
+        className={`drawer withoutHeader ${
           IsOpen ? "drawerOpen" : "drawerClose"
         }  bg-gray-50 border-r overflow-y-auto`}
       >
@@ -26,7 +26,7 @@ export const DrawerItem: React.FC = ({ children }) => {
   return (
     <div
       className="hover:bg-black hover:text-white cursor-pointer w-full 
-			p-5 border-b border-t transition duration-150 ease-in-out"
+			p-5 border-b border-t transition duration-75 ease-in-out"
     >
       {children}
     </div>
