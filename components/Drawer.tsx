@@ -16,27 +16,6 @@ export const Drawer: React.FC = () => {
           <DrawerItem>Upcoming</DrawerItem>
           <DrawerItem>Today</DrawerItem>
           <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
-          <DrawerItem>Upcoming</DrawerItem>
-          <DrawerItem>Today</DrawerItem>
-          <DrawerItem>Urgent</DrawerItem>
         </div>
       </div>
     </div>

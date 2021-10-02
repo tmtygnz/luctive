@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, {
   DetailedHTMLProps,
   HTMLAttributes,
@@ -16,6 +17,11 @@ export type MenuProps = ButtonProps &
 
 export type MenuItemProps = {
   Icon?: JSX.IntrinsicAttributes;
+};
+
+export type MenuItemLinkProps = {
+  Icon?: JSX.IntrinsicAttributes;
+  href: string;
 };
 
 const position = {
@@ -42,12 +48,10 @@ export const Menu: React.FC<MenuProps> = ({
   });
 
   const clickedOutside = (event: MouseEvent) => {
-    console.log(typeof event);
     if (
       !container.current?.contains(event.target as Node) &&
       container.current
     ) {
-      console.log("false");
       setShowOverlay(false);
     }
   };
@@ -82,6 +86,26 @@ export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
         {Icon && <span className="mr-2">{Icon}</span>}
         {children}
       </div>
+    </li>
+  );
+};
+
+export const MenuLinkItem: React.FC<MenuItemLinkProps> = ({
+  children,
+  Icon,
+  href,
+}) => {
+  return (
+    <li
+      className="py-2 border hover:bg-black hover:text-white 
+			transition duration-150 ease-in-out cursor-pointer"
+    >
+      <Link href={href}>
+        <div className="ml-3 flex items-center">
+          {Icon && <span className="mr-2">{Icon}</span>}
+          {children}
+        </div>
+      </Link>
     </li>
   );
 };

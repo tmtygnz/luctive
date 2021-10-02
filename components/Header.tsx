@@ -5,7 +5,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { useDrawer, useDrawerUpdate } from "../context/DrawerContext";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
-import { Menu, MenuItem } from "./ui/Menu";
+import { Menu, MenuItem, MenuLinkItem } from "./ui/Menu";
 
 export const Header = () => {
   const DrawerCon = useDrawer();
@@ -30,7 +30,7 @@ export const Header = () => {
           <MenuItem Icon={<AiOutlineUser />}>Account</MenuItem>
           <MenuItem Icon={<GiSettingsKnobs />}>Settings</MenuItem>
           <MenuItem Icon={<GiExitDoor />}>Log out</MenuItem>
-          <MenuItem>Third Party</MenuItem>
+          <MenuLinkItem href="https://www.github.com">Third Party</MenuLinkItem>
         </Menu>
       </div>
     </div>
