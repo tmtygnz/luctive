@@ -12,7 +12,9 @@ const Home: NextPage = () => {
       <Header />
       <div className="main flex">
         <Drawer></Drawer>
-        <div className={`${DrawerCon ? "ml-80" : "ml-10"} mt-10`}>hi</div>
+        <div className={`${DrawerCon ? "ml-80" : "ml-10"} mt-10`}>
+          <div className="flex justify-center align-middle">hi</div>
+        </div>
       </div>
     </div>
   );

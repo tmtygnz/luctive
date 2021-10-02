@@ -7,18 +7,17 @@ export const Drawer: React.FC = () => {
   const IsOpen = useDrawer();
   return (
     <div className="fixed">
-      {IsOpen ? (
-        <div
-          className={`drawer w-72 resize-x  bg-gray-50 border-r transition : ;
-					duration-150 ease-in-out `}
-        >
-          <div className="flex flex-wrap">
-            <DrawerItem>Upcoming</DrawerItem>
-            <DrawerItem>Today</DrawerItem>
-            <DrawerItem>Urgent</DrawerItem>
-          </div>
+      <div
+        className={`drawer ${
+          IsOpen ? "drawerOpen" : "drawerClose"
+        }  bg-gray-50 border-r overflow-hidden`}
+      >
+        <div className="flex flex-wrap">
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
         </div>
-      ) : null}
+      </div>
     </div>
   );
 };

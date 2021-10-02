@@ -9,4 +9,13 @@
 
 .drawer {
   height: calc(100vh - 56px);
+  transition: width 150ms;
+}
+
+.drawerOpen {
+  width: 18rem;
+}
+
+.drawerClose {
+  width: 0rem;
 }

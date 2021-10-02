@@ -11,6 +11,10 @@ module.exports = {
       fontFamily: {
         sans: ["Prompt", ...defaultTheme.fontFamily.sans],
       },
+      transitionProperty: {
+        height: "width",
+        spacing: "margin",
+      },
     },
   },
   variants: {
