@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { Drawer } from "../components/Drawer";
 import { Header } from "../components/Header";
+import { TodoView } from "../components/TodoView";
 import { useDrawer } from "../context/DrawerContext";
 import styles from "../styles/Home.module.css";
 
@@ -10,10 +11,14 @@ const Home: NextPage = () => {
   return (
     <div className={`${styles.container} box-border `}>
       <Header />
-      <div className="main flex">
+      <div className="main">
         <Drawer></Drawer>
-        <div className={`${DrawerCon ? "ml-80" : "ml-10"} mt-10`}>
-          <div className="flex justify-center align-middle">hi</div>
+        <div
+          className={`${
+            DrawerCon ? "ml-80" : "ml-10"
+          }  flex justify-center items-center`}
+        >
+          <TodoView />
         </div>
       </div>
     </div>

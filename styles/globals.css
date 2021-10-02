@@ -9,7 +9,7 @@
 
 .drawer {
   height: calc(100vh - 56px);
-  transition: width 150ms;
+  transition: width 150ms ease-in-out;
 }
 
 .drawerOpen {

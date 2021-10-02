@@ -27,6 +27,7 @@ export const Header = () => {
           Icon={<AiOutlineUser />}
           MenuPosition="left"
         >
+          <MenuItem Icon={<AiOutlineUser />}>Account</MenuItem>
           <MenuItem Icon={<GiSettingsKnobs />}>Settings</MenuItem>
           <MenuItem Icon={<GiExitDoor />}>Log out</MenuItem>
           <MenuItem>Third Party</MenuItem>

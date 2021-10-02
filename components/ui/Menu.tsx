@@ -61,12 +61,12 @@ export const Menu: React.FC<MenuProps> = ({
         </div>
       </Button>
       {showOverlay && (
-        <div
-          className={`absolute border shadow 
-					${position[MenuPosition]} w-36 bg-white`}
+        <ul
+          className={`absolute border shadow
+					${position[MenuPosition]} w-36 overflow-hidden bg-white`}
         >
           {children}
-        </div>
+        </ul>
       )}
     </div>
   );
@@ -74,7 +74,7 @@ export const Menu: React.FC<MenuProps> = ({
 
 export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
   return (
-    <div
+    <li
       className="py-2 border hover:bg-black hover:text-white 
 			transition duration-150 ease-in-out cursor-pointer"
     >
@@ -82,6 +82,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
         {Icon && <span className="mr-2">{Icon}</span>}
         {children}
       </div>
-    </div>
+    </li>
   );
 };

@@ -10,9 +10,30 @@ export const Drawer: React.FC = () => {
       <div
         className={`drawer ${
           IsOpen ? "drawerOpen" : "drawerClose"
-        }  bg-gray-50 border-r overflow-hidden`}
+        }  bg-gray-50 border-r overflow-y-auto`}
       >
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap scale-100">
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
+          <DrawerItem>Upcoming</DrawerItem>
+          <DrawerItem>Today</DrawerItem>
+          <DrawerItem>Urgent</DrawerItem>
           <DrawerItem>Upcoming</DrawerItem>
           <DrawerItem>Today</DrawerItem>
           <DrawerItem>Urgent</DrawerItem>
