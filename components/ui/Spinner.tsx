@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, DetailedHTMLProps } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 
 const size = {
   lg: "h-14 w-14",
@@ -17,7 +17,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
   className,
   spinnerSize = "sm",
 }) => {
-	console.log(spinnerSize);
+  console.log(spinnerSize);
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,8 +38,8 @@ export const Spinner: React.FC<SpinnerProps> = ({
           y2="5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#C4C4C4" />
-          <stop offset="1" stop-color="#C4C4C4" stop-opacity="0" />
+          <stop stopColor="#C4C4C4" />
+          <stop offset="1" stopColor="#C4C4C4" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

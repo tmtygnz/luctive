@@ -1,5 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import { Button } from "../components/ui/Button";
 
 export default {
@@ -7,6 +6,8 @@ export default {
   component: Button,
 };
 
-const Template = (args) => <Button {...args}>Hello Button</Button>;
+const Template: React.VFC<{}> = (args) => (
+  <Button {...args}>Hello Button</Button>
+);
 
 export const Default = Template.bind({});
