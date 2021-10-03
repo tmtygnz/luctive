@@ -14,29 +14,6 @@ export const TodoView = () => {
     { IsDone: false, Title: "Test4", Duedate: "September 7" },
     { IsDone: false, Title: "Test5", Duedate: "September 8" },
     { IsDone: false, Title: "Test6", Duedate: "September 1" },
-    { IsDone: false, Title: "Test7", Duedate: "September 9" },
-    { IsDone: false, Title: "Test8", Duedate: "September 2" },
-    { IsDone: false, Title: "Test9", Duedate: "September 12" },
-    { IsDone: false, Title: "Test", Duedate: "September 3" },
-    { IsDone: false, Title: "Test1", Duedate: "September 4" },
-    { IsDone: false, Title: "Test2", Duedate: "September 5" },
-    { IsDone: false, Title: "Test3", Duedate: "September 6" },
-    { IsDone: false, Title: "Test4", Duedate: "September 7" },
-    { IsDone: false, Title: "Test5", Duedate: "September 8" },
-    { IsDone: false, Title: "Test6", Duedate: "September 1" },
-    { IsDone: false, Title: "Test7", Duedate: "September 9" },
-    { IsDone: false, Title: "Test8", Duedate: "September 2" },
-    { IsDone: false, Title: "Test9", Duedate: "September 12" },
-    { IsDone: false, Title: "Test", Duedate: "September 3" },
-    { IsDone: false, Title: "Test1", Duedate: "September 4" },
-    { IsDone: false, Title: "Test2", Duedate: "September 5" },
-    { IsDone: false, Title: "Test3", Duedate: "September 6" },
-    { IsDone: false, Title: "Test4", Duedate: "September 7" },
-    { IsDone: false, Title: "Test5", Duedate: "September 8" },
-    { IsDone: false, Title: "Test6", Duedate: "September 1" },
-    { IsDone: false, Title: "Test7", Duedate: "September 9" },
-    { IsDone: false, Title: "Test8", Duedate: "September 2" },
-    { IsDone: false, Title: "Test9", Duedate: "September 12" },
   ];
 
   return (
@@ -55,11 +32,11 @@ export const TodoView = () => {
         </div>
       </div>
       <div className="Todos mt-5">
-        <ul>
-          {TodoList.map((x) => (
-            <TodoItem>{x.Title}</TodoItem>
+        <div>
+          {TodoList.map((x, i) => (
+            <TodoItem key={i}>{x.Title}</TodoItem>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );
@@ -67,7 +44,7 @@ export const TodoView = () => {
 
 export const TodoItem: React.FC = ({ children }) => {
   return (
-    <li className="border-t border-b flex items-center p-5 cursor-pointer justify-between">
+    <div className="border-t border-b flex items-center p-5 cursor-pointer justify-between">
       <div className="flex items-center">
         <Button className="mr-5" Type="normal">
           <AiFillCheckSquare />
@@ -83,6 +60,6 @@ export const TodoItem: React.FC = ({ children }) => {
           <AiOutlineMore />
         </Button>
       </div>
-    </li>
+    </div>
   );
 };
