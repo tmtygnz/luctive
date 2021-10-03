@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const DrawerCon = useDrawer();
 
   return (
-    <div className={`${styles.container} box-border `}>
+    <div className={`${styles.container} box-border`}>
       <Header />
       <div className="main withoutHeader">
         <Drawer></Drawer>
