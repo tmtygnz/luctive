@@ -1,16 +1,6 @@
-### YOUDO still in development
+### Luctive
+A Todo list
 
-The name will be changed later in the development.
-
-### Note
-School starts the development progress might criple but i will try my best.
-
-### WIP Components
-- Button [WIP]
-- Checkbox
-- Input
-- Navlink
-- Spinner [WIP]
-- Dropdown [WIP]
-
-[Components Design](https://www.figma.com/file/AlJHPllHve4EJ5QBoPR2Wj/Untitled?node-id=2%3A2)
+### Currently Working On
+- Socket.io Connection
+- API
