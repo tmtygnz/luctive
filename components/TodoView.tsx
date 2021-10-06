@@ -47,8 +47,8 @@ export const TodoView = () => {
       </div>
       <div className="Todos mt-5">
         <div>
-          {TodoList.map((x) => (
-            <TodoItem>{x.todoTitle}</TodoItem>
+          {TodoList.map((x, i) => (
+            <TodoItem key={i}>{x.todoTitle}</TodoItem>
           ))}
         </div>
       </div>
