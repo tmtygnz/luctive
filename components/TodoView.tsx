@@ -14,7 +14,7 @@ export const TodoView = () => {
   const [TodoList, setTodoList] = useState<ITodo[]>([]);
   const [socket, setSocket] = useState<Socket>();
 
-  useEffect(() => {
+  useEffect((): any => {
     let nSocket = io("localhost:5467", {
       rejectUnauthorized: false,
     });
