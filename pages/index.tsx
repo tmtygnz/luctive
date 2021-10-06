@@ -9,12 +9,12 @@ const Home: NextPage = () => {
   const DrawerCon = useDrawer();
 
   return (
-    <div className={`${styles.container} box-border`}>
+    <div className={`${styles.container} overflow-hidden`}>
       <Header />
       <div className="main withoutHeader">
         <Drawer></Drawer>
         <div
-          className={`withoutHeader overflow-auto flex justify-center ${
+          className={`withoutHeader overflow-y-auto overflow-x-hidden flex justify-center ${
             DrawerCon ? "drawerIsOpen" : "drawerIsClosed"
           }`}
         >

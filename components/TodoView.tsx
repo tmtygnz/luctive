@@ -1,20 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillCheckSquare, AiOutlineMore } from "react-icons/ai";
 import { BiSort } from "react-icons/bi";
+import io from "socket.io-client";
+import { useUserID } from "../context/UserContext";
 import { ITodo } from "../interfaces/ITodo";
+import { IUser } from "../interfaces/IUser";
 import { Button } from "./ui/Button";
 import { Menu, MenuItem } from "./ui/Menu";
 
+const socket = io("localhost:5467", {
+  rejectUnauthorized: false,
+});
+
 export const TodoView = () => {
-  let TodoList: Array<ITodo> = [
-    { IsDone: false, Title: "Test", Duedate: "September 3" },
-    { IsDone: false, Title: "Test1", Duedate: "September 4" },
-    { IsDone: false, Title: "Test2", Duedate: "September 5" },
-    { IsDone: false, Title: "Test3", Duedate: "September 6" },
-    { IsDone: false, Title: "Test4", Duedate: "September 7" },
-    { IsDone: false, Title: "Test5", Duedate: "September 8" },
-    { IsDone: false, Title: "Test6", Duedate: "September 1" },
-  ];
+  let user = useUserID();
+  socket.emit("join_room", user.userID);
+
+  const [TodoList, setTodoList] = useState<ITodo[]>([]);
+
+  useEffect(() => {
+    socket.on("dbUpdate", (snapshot: IUser) => {
+      setTodoList(snapshot.spaces[0].spaceTodo);
+      console.log(TodoList);
+    });
+  });
 
   return (
     <div className="w-220 m-10">
@@ -33,10 +42,15 @@ export const TodoView = () => {
       </div>
       <div className="Todos mt-5">
         <div>
-          {TodoList.map((x, i) => (
-            <TodoItem key={i}>{x.Title}</TodoItem>
+          {TodoList.map((x) => (
+            <TodoItem>{x.todoTitle}</TodoItem>
           ))}
         </div>
+      </div>
+      <div className="mt-3">
+        <Button onClick={() => socket.emit("openAlert", user.userID)}>
+          + Add To-Do
+        </Button>
       </div>
     </div>
   );

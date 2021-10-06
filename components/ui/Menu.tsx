@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React, {
-	DetailedHTMLProps,
-	HTMLAttributes,
-	useEffect,
-	useRef,
-	useState
+  DetailedHTMLProps,
+  HTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
 } from "react";
 import { Button, ButtonProps } from "./Button";
 
