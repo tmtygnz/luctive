@@ -1,6 +1,3 @@
-### Luctive
-A Todo list
+# Luctive | [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Vercel](https://vercelbadge.vercel.app/api/jostimian/luctive)
 
-### Currently Working On
-- Socket.io Connection
-- API
+Luctive is a Todo list app written in react and nextjs
