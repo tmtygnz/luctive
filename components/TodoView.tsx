@@ -1,35 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiFillCheckSquare, AiOutlineMore } from "react-icons/ai";
 import { BiSort } from "react-icons/bi";
-import io, { Socket } from "socket.io-client";
-import { useUserID } from "../context/UserContext";
-import { ITodo } from "../interfaces/ITodo";
-import { IUser } from "../interfaces/IUser";
+import { useTitle, useTodoList } from "../context/UserContext";
 import { Button } from "./ui/Button";
 import { Menu, MenuItem } from "./ui/Menu";
 
 export const TodoView = () => {
-  let user = useUserID();
-
-  const [todoList, setTodoList] = useState<ITodo[]>([]);
-  const [title, setTitle] = useState<string>();
-  const [socket, setSocket] = useState<Socket>();
-
-  useEffect((): any => {
-    let nSocket = io("https://luctive-api.herokuapp.com/", {
-      rejectUnauthorized: false,
-    });
-    setSocket(nSocket);
-    return () => nSocket.close();
-  }, [setSocket]);
-
-  useEffect(() => {
-    socket?.emit("join_room", user.userID);
-    socket?.on("dbUpdate", (snapshot: IUser) => {
-      setTodoList(snapshot.spaces[0].spaceTodo);
-      setTitle(snapshot.spaces[0].spaceName);
-    });
-  }, [socket]);
+  const title = useTitle();
+  const todoList = useTodoList();
 
   return (
     <div className="w-220 m-10">
@@ -54,9 +32,7 @@ export const TodoView = () => {
         </div>
       </div>
       <div className="mt-3">
-        <Button onClick={() => socket?.emit("openAlert", user.userID)}>
-          + Add To-Do
-        </Button>
+        <Button>+ Add To-Do</Button>
       </div>
     </div>
   );
