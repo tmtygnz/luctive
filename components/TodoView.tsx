@@ -11,7 +11,8 @@ import { Menu, MenuItem } from "./ui/Menu";
 export const TodoView = () => {
   let user = useUserID();
 
-  const [TodoList, setTodoList] = useState<ITodo[]>([]);
+  const [todoList, setTodoList] = useState<ITodo[]>([]);
+  const [title, setTitle] = useState<string>();
   const [socket, setSocket] = useState<Socket>();
 
   useEffect((): any => {
@@ -27,6 +28,7 @@ export const TodoView = () => {
     socket?.emit("join_room", user.userID);
     socket?.on("dbUpdate", (snapshot: IUser) => {
       setTodoList(snapshot.spaces[0].spaceTodo);
+      setTitle(snapshot.spaces[0].spaceName);
     });
   }, [socket]);
 
@@ -34,7 +36,7 @@ export const TodoView = () => {
     <div className="w-220 m-10">
       <div className="flex justify-between">
         <div className="Title">
-          <span className="text-2xl">Urgent</span>
+          <span className="text-2xl">{title}</span>
           <span className="text-sm ml-2 text-gray-400">Saturday 2 October</span>
         </div>
         <div className="Tools ">
@@ -47,7 +49,7 @@ export const TodoView = () => {
       </div>
       <div className="Todos mt-5">
         <div>
-          {TodoList.map((x, i) => (
+          {todoList.map((x, i) => (
             <TodoItem key={i}>{x.todoTitle}</TodoItem>
           ))}
         </div>
