@@ -27,6 +27,7 @@ export type ButtonProps = DetailedHTMLProps<
   Type?: keyof typeof buttonTypes;
   PaddingSize?: keyof typeof paddingSizes;
   Size?: keyof typeof size;
+  Icon?: JSX.IntrinsicAttributes;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -36,6 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
   PaddingSize = "small",
   Size = "sm",
   className,
+  Icon,
   ...props
 }) => {
   return (
@@ -47,6 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
       } ${className} transition ease-in-out duration-75`}
       {...props}
     >
+      {Icon && <span>{Icon}</span>}
       <span className="items-center">{children}</span>
     </button>
   );

@@ -58,15 +58,16 @@ export const Menu: React.FC<MenuProps> = ({
 
   return (
     <div className="relative inline-block" ref={container}>
-      <Button {...props} onClick={() => setShowOverlay(!showOverlay)}>
-        <div className="flex items-center">
-          <span className="mr-2">{Icon}</span>
-          {label}
-        </div>
+      <Button
+        {...props}
+        onClick={() => setShowOverlay(!showOverlay)}
+        Icon={Icon}
+      >
+        <div className="flex items-center">{label}</div>
       </Button>
       {showOverlay && (
         <ul
-          className={`absolute border shadow
+          className={`absolute border shadow z-10
 					${position[MenuPosition]} w-36 overflow-hidden bg-white`}
         >
           {children}
@@ -80,7 +81,7 @@ export const MenuItem: React.FC<MenuItemProps> = ({ children, Icon }) => {
   return (
     <li
       className="py-2 border hover:bg-black hover:text-white 
-			transition duration-75 ease-in-out cursor-pointer"
+			transition duration-75 ease-in-out cursor-pointer bg-white"
     >
       <div className="ml-3 flex items-center">
         {Icon && <span className="mr-2">{Icon}</span>}

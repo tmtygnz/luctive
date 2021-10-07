@@ -16,11 +16,10 @@ export const TodoView = () => {
   const [socket, setSocket] = useState<Socket>();
 
   useEffect((): any => {
-    let nSocket = io("localhost:5467", {
+    let nSocket = io("https://luctive-api.herokuapp.com/", {
       rejectUnauthorized: false,
     });
     setSocket(nSocket);
-    console.log("test??????");
     return () => nSocket.close();
   }, [setSocket]);
 
@@ -77,9 +76,10 @@ export const TodoItem: React.FC = ({ children }) => {
       </div>
 
       <div>
-        <Button>
-          <AiOutlineMore />
-        </Button>
+        <Menu Icon={<AiOutlineMore />}>
+          <MenuItem>Edit Task</MenuItem>
+          <MenuItem>Delete Task</MenuItem>
+        </Menu>
       </div>
     </div>
   );
