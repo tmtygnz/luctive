@@ -6,6 +6,7 @@ import { IUser } from "../interfaces/IUser";
 
 const userIDContext = createContext<any | null>(null);
 const updateUserIDContext = createContext<any | null>(null);
+const isLoggedInContext = createContext<any | null>(null);
 const todoListContext = createContext<ITodo[]>([]);
 const titleContext = createContext<string>("");
 
@@ -16,7 +17,16 @@ export const UserProvider: React.FC = ({ children }) => {
   const [socket, setSocket] = useState<Socket>();
 
   const updateUserID = (id: string) => {
-    setUserID("userID", id);
+    setUserID("userID", id, { maxAge: 1000, path: "/" });
+  };
+
+  const isLoggedIn = () => {
+    console.log(userID.userID);
+    if (userID.userID) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   useEffect((): any => {
@@ -40,7 +50,9 @@ export const UserProvider: React.FC = ({ children }) => {
       <updateUserIDContext.Provider value={updateUserID}>
         <todoListContext.Provider value={todoList}>
           <titleContext.Provider value={title}>
-            {children}
+            <isLoggedInContext.Provider value={isLoggedIn}>
+              {children}
+            </isLoggedInContext.Provider>
           </titleContext.Provider>
         </todoListContext.Provider>
       </updateUserIDContext.Provider>
@@ -62,4 +74,8 @@ export const useTodoList = () => {
 
 export const useTitle = () => {
   return useContext(titleContext);
+};
+
+export const useIsLoggedIn = () => {
+  return useContext(isLoggedInContext);
 };

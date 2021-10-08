@@ -1,28 +1,19 @@
 import type { NextPage } from "next";
-import { Drawer } from "../components/Drawer";
-import { Header } from "../components/Header";
-import { TodoView } from "../components/TodoView";
-import { useDrawer } from "../context/DrawerContext";
-import { useUpdateUserID } from "../context/UserContext";
+import React from "react";
+import { Dashboard } from "../components/Dashboard";
+import { Join } from "../components/Join";
+import { useSigningUp } from "../context/SignupContext";
+import { useIsLoggedIn } from "../context/UserContext";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  const DrawerCon = useDrawer();
-  const update = useUpdateUserID();
+  const isLoggedin = useIsLoggedIn();
+  const SigningUp = useSigningUp();
+  console.log(isLoggedin());
 
   return (
     <div className={`${styles.container} overflow-hidden`}>
-      <Header />
-      <div className="main withoutHeader">
-        <Drawer></Drawer>
-        <div
-          className={`withoutHeader overflow-y-auto overflow-x-hidden flex justify-center ${
-            DrawerCon ? "drawerIsOpen" : "drawerIsClosed"
-          }`}
-        >
-          <TodoView />
-        </div>
-      </div>
+      {isLoggedin() ? <Dashboard /> : <Join />}
     </div>
   );
 };
