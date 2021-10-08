@@ -5,6 +5,7 @@ Luctive is a Todo list app written in react and nextjs
 
 ## Currently Working On
 - ✅ Client - API Socket Connection
+- ⚙ Login / Sign Up / Authentication
 - ⚙ List All Spaces
 - ⚙ Add New Too
 - ⚙ Electron Wrapper
