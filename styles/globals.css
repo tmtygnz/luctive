@@ -34,3 +34,10 @@
 .drawerIsClosed {
   margin: 0rem 0rem 0rem 2.5rem;
 }
+
+.seperator::before,
+.seperator::after {
+  box-sizing: inherit;
+  background-color: black;
+  height: 1px;
+}

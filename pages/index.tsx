@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import React from "react";
-import { Dashboard } from "../components/Dashboard";
-import { Join } from "../components/Join";
+import { Button } from "../components/ui/Button";
 import { useSigningUp } from "../context/SignupContext";
 import { useIsLoggedIn } from "../context/UserContext";
 import styles from "../styles/Home.module.css";
@@ -13,7 +13,9 @@ const Home: NextPage = () => {
 
   return (
     <div className={`${styles.container} overflow-hidden`}>
-      {isLoggedin() ? <Dashboard /> : <Join />}
+      <Button>
+        <Link href="/users/signup">test</Link>
+      </Button>
     </div>
   );
 };

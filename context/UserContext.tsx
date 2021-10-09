@@ -79,3 +79,13 @@ export const useTitle = () => {
 export const useIsLoggedIn = () => {
   return useContext(isLoggedInContext);
 };
+
+export const getServerSideProps = async () => {
+  console.log("Test");
+  console.log(process.env.FIREBASE_AUTH);
+  return {
+    props: {
+      hello: "hi",
+    },
+  };
+};
