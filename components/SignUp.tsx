@@ -27,7 +27,7 @@ export const SignUp = () => {
       </div>
       <div className="font-light mt-3 w-72">
         <Button Type="outline" className="w-full">
-          <Link href="/">Login</Link>
+          <Link href="/users/login">Login</Link>
         </Button>
       </div>
     </div>
