@@ -1,7 +1,11 @@
 import React from "react";
 import { SignUp } from "../../components/SignUp";
 
-const login = () => {
+export type HomeProps = {
+  fauth: string;
+};
+
+const login: React.FC<HomeProps> = ({ fauth }) => {
   return (
     <div className="flex items-center justify-start">
       <div className="w-6/12 bg-black h-screen flex items-center justify-center">
@@ -10,10 +14,18 @@ const login = () => {
         </span>
       </div>
       <div className="w-6/12 bg-white h-screen flex items-center justify-center">
-        <SignUp />
+        <SignUp fauth={fauth} />
       </div>
     </div>
   );
 };
 
 export default login;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      fauth: process.env.FIREBASE_AUTH,
+    },
+  };
+};

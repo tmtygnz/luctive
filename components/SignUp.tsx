@@ -1,8 +1,36 @@
+import { initializeApp } from "@firebase/app";
+import {
+  FacebookAuthProvider,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "@firebase/auth";
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/Button";
 
-export const SignUp = () => {
+export type SignUpProps = {
+  fauth: string;
+};
+
+export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
+  console.log(fauth);
+  const app = initializeApp(JSON.parse(fauth));
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const auth = getAuth();
+
+  const openGoogle = () => {
+    signInWithPopup(auth, googleProvider).then((res) => {
+      console.log(res);
+    });
+  };
+
+  const openFacebook = () => {
+    signInWithPopup(auth, facebookProvider).then((res) => {
+      console.log(res);
+    });
+  };
   return (
     <div className="p-5">
       <div className="header">
@@ -13,10 +41,18 @@ export const SignUp = () => {
         </div>
       </div>
       <div className="mt-3 flex justify-center flex-col">
-        <Button Type="normal" className="w-full bg-red-600">
+        <Button
+          Type="normal"
+          className="w-full bg-red-600"
+          onClick={() => openGoogle()}
+        >
           Google
         </Button>
-        <Button Type="normal" className="w-full mt-2 bg-blue-600">
+        <Button
+          Type="normal"
+          className="w-full mt-2 bg-blue-600"
+          onClick={() => openFacebook()}
+        >
           Facebook
         </Button>
       </div>

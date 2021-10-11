@@ -6,7 +6,6 @@ import { IUser } from "../interfaces/IUser";
 
 const userIDContext = createContext<any | null>(null);
 const updateUserIDContext = createContext<any | null>(null);
-const isLoggedInContext = createContext<any | null>(null);
 const todoListContext = createContext<ITodo[]>([]);
 const titleContext = createContext<string>("");
 
@@ -50,9 +49,7 @@ export const UserProvider: React.FC = ({ children }) => {
       <updateUserIDContext.Provider value={updateUserID}>
         <todoListContext.Provider value={todoList}>
           <titleContext.Provider value={title}>
-            <isLoggedInContext.Provider value={isLoggedIn}>
-              {children}
-            </isLoggedInContext.Provider>
+            {children}
           </titleContext.Provider>
         </todoListContext.Provider>
       </updateUserIDContext.Provider>
@@ -74,18 +71,4 @@ export const useTodoList = () => {
 
 export const useTitle = () => {
   return useContext(titleContext);
-};
-
-export const useIsLoggedIn = () => {
-  return useContext(isLoggedInContext);
-};
-
-export const getServerSideProps = async () => {
-  console.log("Test");
-  console.log(process.env.FIREBASE_AUTH);
-  return {
-    props: {
-      hello: "hi",
-    },
-  };
 };
