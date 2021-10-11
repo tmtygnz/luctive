@@ -23,12 +23,16 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
   const openGoogle = () => {
     signInWithPopup(auth, googleProvider).then((res) => {
       console.log(res);
+    }).catch((err) => {
+      alert(err);
     });
   };
 
   const openFacebook = () => {
     signInWithPopup(auth, facebookProvider).then((res) => {
       console.log(res);
+    }).catch((err) => {
+      alert(err);
     });
   };
   return (

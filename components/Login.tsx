@@ -1,10 +1,8 @@
 import Link from "next/link";
 import React from "react";
-import { useUpdateSigningUpContext } from "../context/SignupContext";
 import { Button } from "./ui/Button";
 
 export const Login = () => {
-  const updateIsSigningUp = useUpdateSigningUpContext();
   return (
     <div className="p-5 border border-black">
       <div className="header">
