@@ -6,6 +6,7 @@ export type HomeProps = {
 };
 
 const login: React.FC<HomeProps> = ({ fauth }) => {
+  const auth: string = Buffer.from(fauth, "base64").toString("binary");
   return (
     <div className="flex items-center justify-start">
       <div className="w-6/12 bg-black h-screen flex items-center justify-center">
@@ -14,7 +15,7 @@ const login: React.FC<HomeProps> = ({ fauth }) => {
         </span>
       </div>
       <div className="w-6/12 bg-white h-screen flex items-center justify-center">
-        <SignUp fauth={fauth} />
+        <SignUp fauth={auth}/>
       </div>
     </div>
   );
@@ -25,7 +26,7 @@ export default login;
 export const getServerSideProps = async () => {
   return {
     props: {
-      fauth: process.env.FIREBASE_AUTH,
+      fauth: process.env.FIREBASEAUTH,
     },
   };
 };

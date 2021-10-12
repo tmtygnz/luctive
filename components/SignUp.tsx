@@ -1,9 +1,9 @@
 import { initializeApp } from "@firebase/app";
 import {
-  FacebookAuthProvider,
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
+	FacebookAuthProvider,
+	getAuth,
+	GoogleAuthProvider,
+	signInWithPopup
 } from "@firebase/auth";
 import Link from "next/link";
 import React from "react";
@@ -21,19 +21,23 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
   const auth = getAuth();
 
   const openGoogle = () => {
-    signInWithPopup(auth, googleProvider).then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      alert(err);
-    });
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   const openFacebook = () => {
-    signInWithPopup(auth, facebookProvider).then((res) => {
-      console.log(res);
-    }).catch((err) => {
-      alert(err);
-    });
+    signInWithPopup(auth, facebookProvider)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
   return (
     <div className="p-5">
