@@ -1,9 +1,8 @@
 import { initializeApp } from "@firebase/app";
 import {
 	FacebookAuthProvider,
-	getAuth,
-	GoogleAuthProvider,
-	signInWithPopup
+	getAuth, getRedirectResult, GoogleAuthProvider,
+	signInWithRedirect
 } from "@firebase/auth";
 import Link from "next/link";
 import React from "react";
@@ -14,14 +13,13 @@ export type SignUpProps = {
 };
 
 export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
-  console.log(fauth);
   const app = initializeApp(JSON.parse(fauth));
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const auth = getAuth();
 
   const openGoogle = () => {
-    signInWithPopup(auth, googleProvider)
+    signInWithRedirect(auth, googleProvider)
       .then((res) => {
         console.log(res);
       })
@@ -31,7 +29,7 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
   };
 
   const openFacebook = () => {
-    signInWithPopup(auth, facebookProvider)
+    signInWithRedirect(auth, facebookProvider)
       .then((res) => {
         console.log(res);
       })
@@ -39,6 +37,27 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
         alert(err);
       });
   };
+
+	getRedirectResult(auth)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access Google APIs.
+    const credential = GoogleAuthProvider.credentialFromResult(result!);
+    const token = credential?.accessToken;
+
+    // The signed-in user info.
+    const user = result?.user;
+		console.log(user);
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
+
   return (
     <div className="p-5">
       <div className="header">

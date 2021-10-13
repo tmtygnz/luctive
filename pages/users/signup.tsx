@@ -7,7 +7,6 @@ export type HomeProps = {
 
 const login: React.FC<HomeProps> = ({ fauth }) => {
   const auth: string = Buffer.from(fauth, "base64").toString("binary");
-	console.log(`Firebase Auth [login] ${auth}`);
   return (
     <div className="flex items-center justify-start">
       <div className="w-6/12 bg-black h-screen flex items-center justify-center">
@@ -25,7 +24,6 @@ const login: React.FC<HomeProps> = ({ fauth }) => {
 export default login;
 
 export const getServerSideProps = async () => {
-	console.log(`Firebase Auth [getserversideprops] ${process.env.FIREBASEAUTH}`);
   return {
     props: {
       fauth: process.env.FIREBASEAUTH,
