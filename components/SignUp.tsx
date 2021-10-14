@@ -1,11 +1,15 @@
 import { initializeApp } from "@firebase/app";
 import {
 	FacebookAuthProvider,
-	getAuth, getRedirectResult, GoogleAuthProvider,
+	getAuth,
+	getRedirectResult,
+	GoogleAuthProvider,
 	signInWithRedirect
 } from "@firebase/auth";
+import axios from "axios";
 import Link from "next/link";
 import React from "react";
+import { IcheckUser } from "../interfaces/IApi";
 import { Button } from "./ui/Button";
 
 export type SignUpProps = {
@@ -38,25 +42,26 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
       });
   };
 
-	getRedirectResult(auth)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
-    const credential = GoogleAuthProvider.credentialFromResult(result!);
-    const token = credential?.accessToken;
-
-    // The signed-in user info.
-    const user = result?.user;
-		console.log(user);
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
+  getRedirectResult(auth)
+    .then(async (result) => {
+      const uid = result?.user.uid;
+			let res = await axios.get<IcheckUser>(`http://localhost:5467/users/checkUser?userID=${uid}`);
+			if (res.data.doExist){
+				console.log("The user exist");
+			} else {
+				console.log("The user does not exist");
+			}
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
 
   return (
     <div className="p-5">
