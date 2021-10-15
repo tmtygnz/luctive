@@ -2,14 +2,12 @@ import { initializeApp } from "@firebase/app";
 import {
 	FacebookAuthProvider,
 	getAuth,
-	getRedirectResult,
 	GoogleAuthProvider,
-	signInWithRedirect
+	signInWithPopup
 } from "@firebase/auth";
-import axios from "axios";
 import Link from "next/link";
+import Router from "next/router";
 import React from "react";
-import { IcheckUser } from "../interfaces/IApi";
 import { Button } from "./ui/Button";
 
 export type SignUpProps = {
@@ -23,9 +21,10 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
   const auth = getAuth();
 
   const openGoogle = () => {
-    signInWithRedirect(auth, googleProvider)
+    signInWithPopup(auth, googleProvider)
       .then((res) => {
         console.log(res);
+        Router.push("/");
       })
       .catch((err) => {
         alert(err);
@@ -33,7 +32,7 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
   };
 
   const openFacebook = () => {
-    signInWithRedirect(auth, facebookProvider)
+    signInWithPopup(auth, facebookProvider)
       .then((res) => {
         console.log(res);
       })
@@ -41,27 +40,6 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
         alert(err);
       });
   };
-
-  getRedirectResult(auth)
-    .then(async (result) => {
-      const uid = result?.user.uid;
-			let res = await axios.get<IcheckUser>(`http://localhost:5467/users/checkUser?userID=${uid}`);
-			if (res.data.doExist){
-				console.log("The user exist");
-			} else {
-				console.log("The user does not exist");
-			}
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
-    });
 
   return (
     <div className="p-5">
