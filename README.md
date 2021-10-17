@@ -11,7 +11,7 @@ Luctive is a Todo list app written in react and nextjs
 - ⚙ Electron Wrapper
 
 ### Contribution
-Please read the [CONTRIBUTING.md](https://github.com/jostimian/luctive/blob/main/CONTRIBUTING.md) first.
+Please read the [Contributing docs](https://obvious-skunk-936.notion.site/Contributing-6cac2242072b4d10b060ed3c41e93b01) first.
 I will review all of the contributions and will merge it if it is good to go!.
 
 ### Creds
