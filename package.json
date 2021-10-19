@@ -11,12 +11,13 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@types/js-cookie": "^3.0.0",
     "@types/react-modal": "^3.12.1",
     "axios": "^0.23.0",
     "firebase": "^9.1.2",
+    "js-cookie": "^3.0.1",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-cookie": "^4.1.1",
     "react-cookies": "^0.1.1",
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",

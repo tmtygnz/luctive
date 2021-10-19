@@ -1,9 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import { Button } from "../components/ui/Button";
+import { useUserID } from "../context/AuthContext";
 import styles from "../styles/Home.module.css";
 
 const Home: React.FC = () => {
+	const {userID, updateUserID} = useUserID();
+	console.log(userID);
   return (
     <div className={`${styles.container} overflow-hidden`}>
       <Button>

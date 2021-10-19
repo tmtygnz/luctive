@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from "next/link";
 import React from "react";
 import { Button } from "./ui/Button";
@@ -5,6 +6,9 @@ import { Button } from "./ui/Button";
 export const Login = () => {
   return (
     <div className="p-5 border border-black">
+			<Head>
+				<title>Login</title>
+			</Head>
       <div className="header">
         <div className="text-2xl font-bold">Login</div>
         <div className="font-light mt-3 w-72">
