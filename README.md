@@ -16,3 +16,6 @@ I will review all of the contributions and will merge it if it is good to go!.
 
 ### Creds
 Thank you to all contributors.
+
+
+I am sorry for the inactivity.
