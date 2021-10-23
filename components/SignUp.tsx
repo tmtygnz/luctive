@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import { useUserID } from "../context/AuthContext";
+import { checkAccount, createAccount } from "../utils/apiFunction";
 import { Button } from "./ui/Button";
 
 export type SignUpProps = {
@@ -28,8 +29,12 @@ export const SignUp: React.FC<SignUpProps> = ({ fauth }) => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         updateUserID(res.user.uid);
-				setTimeout(() => {
-					router.push("/")
+				setTimeout(async () => {
+					let doUserExist = await checkAccount(userID);
+					if (!doUserExist){
+						await createAccount(userID, res.user.displayName!);
+					}
+					router.push("/");
 				}, 1000);
       })
       .catch((err) => {
